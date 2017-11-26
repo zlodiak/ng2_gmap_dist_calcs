@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { AgmCoreModule } from '@agm/core';
 
 
 import { AppComponent } from './app.component';
+import { GmapService } from './services/gmap.service';
 
 
 @NgModule({
@@ -10,9 +14,13 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+  	HttpModule,
+    BrowserModule,
+		AgmCoreModule.forRoot({
+		  apiKey: 'AIzaSyDT2NO8RgOBPpi3Hph-sjfyE1zyRPAoMnQ'
+		})     
   ],
-  providers: [],
+  providers: [GmapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
